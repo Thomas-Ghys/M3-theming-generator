@@ -1,0 +1,24 @@
+{
+  "name": "@tg/m3-theming-generator",
+  "version": "0.0.1",
+  "description": "A package to generate a M3 theming system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thomas-Ghys/M3-theming-generator.git"
+  },
+  "keywords": [
+    "M3",
+    "theming",
+    "scss"
+  ],
+  "author": "Thomas Ghys",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Thomas-Ghys/M3-theming-generator/issues"
+  },
+  "homepage": "https://github.com/Thomas-Ghys/M3-theming-generator#readme"
+}
