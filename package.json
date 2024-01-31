@@ -2,9 +2,13 @@
   "name": "@tg/m3-theming-generator",
   "version": "0.0.1",
   "description": "A package to generate a M3 theming system",
-  "main": "src/index.ts",
+  "main": "index.js",
+  "bin": {
+    "generate-m3": "./dist/index.js"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
