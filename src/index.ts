@@ -1,27 +1,19 @@
 #!/usr/bin/env node
-import * as fs from 'fs';
-import * as path from 'path';
+import {generate} from './generate-theme/generate';
 
-export function generate() {
-    const templatePath = path.join(process.cwd(), 'node_modules', '@tg', 'm3-theming-generator', 'dist','templates');
-    const templatePathNames = fs.readdirSync(templatePath);
-
-    const projectPath = path.join(process.cwd(), 'projectbs');
-    console.log(templatePathNames);
-
-    if (!fs.existsSync(projectPath)) {
-        fs.mkdirSync(projectPath);
+function m3ThemingGenerator() {
+    if (process.argv[2] === 'generate') {
+        console.log('generating theme');
+        generate();
+        return;
     }
 
-    templatePathNames.forEach(name => {
-        const originPath = path.join(templatePath, name);
-        const destinationPath = path.join(projectPath, name);
-        const stats = fs.statSync(originPath);
+    if(process.argv[2] === 'append-color') {
+        console.log('Appending color to the theme');
+        return;
+    }
 
-        if (stats.isFile()) {
-            const content = fs.readFileSync(originPath, 'utf-8');
-            fs.writeFileSync(destinationPath, content);
-        }
-    })
+    console.log('Process not found');
 }
-generate();
+
+m3ThemingGenerator();
