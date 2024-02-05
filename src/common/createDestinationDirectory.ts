@@ -5,12 +5,12 @@ export function createDestinationDirectory(destinationPath: string) {
     let directoryList: string[] = [];
     let createdDestinationPath: string = '';
 
-    console.log(destinationPath);
-
     if (destinationPath.includes('/')) {
         directoryList = destinationPath.split('/');
     } else if (destinationPath.includes('\\')) {
         directoryList = destinationPath.split('\\');
+    } else {
+        directoryList.push(destinationPath);
     }
 
     directoryList.forEach((directoryPath: string) => {

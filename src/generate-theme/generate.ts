@@ -1,6 +1,8 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { createDestinationDirectory } from '../common/common-variables';
+import { createDestinationDirectory } from '../common/createDestinationDirectory';
+import { createColorArray } from '../common/createColorArray';
+import { ColorMap } from '../types/colorMap';
 
 export function generate() {
     // Creates a path to the templates directory to use in the code
@@ -24,11 +26,7 @@ export function generate() {
             
             process.argv.forEach((arg, index) => {
                 if (index > 3) {
-                    let key: string = arg.split('=')[0];
-                    let color: string = arg.split('=')[1];
-
-
-                    addColor(destinationPathName, key, color);
+                    addColor(destinationPathName, arg);
                 }
             })
         }
@@ -37,10 +35,16 @@ export function generate() {
     console.log(process.argv);
 }
 
-function addColor(destinationPathName: string, key: string, color: string) {
+function addColor(destinationPathName: string, color: string) {
     var logger = fs.createWriteStream(destinationPathName, {
         flags: 'a'
     });
 
-    logger.write(`\n$${key}: ('1': #123456, '2':#000000);`);
+    logger.write(`\n$${color.split('=')[0]}: (`);
+
+    createColorArray(color).forEach((color: ColorMap) => {
+        logger.write(`\n\t$${Object.keys(color)[0]}: ${color[Object.keys(color)[0]]},`);
+    });
+
+    logger.write('\n);');
 }
