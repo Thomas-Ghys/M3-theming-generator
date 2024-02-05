@@ -1,4 +1,4 @@
-import { ColorMap } from "../types/colorMap";
+import { ColorMap } from "../../types/colorMap";
 import { calculateColor } from "./calculateColor";
 
 export function createColorArray(color: string): ColorMap[] {

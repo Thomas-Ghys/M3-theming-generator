@@ -1,4 +1,4 @@
-import { RGB } from "../types/RGB";
+import { RGB } from "../../types/RGB";
 
 export function calculateColor(hexInput: string, percentagemodifier: number): string {
     let rgbConvertedInput: RGB = convertHexToRGB(hexInput);

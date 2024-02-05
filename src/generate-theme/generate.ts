@@ -1,9 +1,9 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { createDestinationDirectory } from '../common/createDestinationDirectory';
-import { createDirectory } from '../common/createDirectory';
-import { addColor } from '../common/addColor';
-import { createFile } from '../common/createFile';
+import { createDestinationDirectory } from '../common/tree-manipulation/createDestinationDirectory';
+import { createDirectory } from '../common/tree-manipulation/createDirectory';
+import { addColor } from '../common/color-calculations/addColor';
+import { createFile } from '../common/tree-manipulation/createFile';
 
 export function generate() {
     // Creates a path to the templates directory to use in the code

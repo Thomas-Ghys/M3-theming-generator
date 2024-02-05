@@ -1,6 +1,6 @@
 
-import { createColorArray } from '../common/createColorArray';
-import { ColorMap } from '../types/colorMap';
+import { createColorArray } from './createColorArray';
+import { ColorMap } from '../../types/colorMap';
 import * as fs from 'fs';
 
 export function addColor(destinationPathName: string, color: string) {
