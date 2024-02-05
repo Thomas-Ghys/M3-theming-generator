@@ -1,8 +1,9 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { createDestinationDirectory } from '../common/createDestinationDirectory';
-import { createColorArray } from '../common/createColorArray';
-import { ColorMap } from '../types/colorMap';
+import { createDirectory } from '../common/createDirectory';
+import { addColor } from '../common/addColor';
+import { createFile } from '../common/createFile';
 
 export function generate() {
     // Creates a path to the templates directory to use in the code
@@ -23,28 +24,16 @@ export function generate() {
         if (stats.isFile()) {
             const content = fs.readFileSync(originPath, 'utf-8');
             fs.writeFileSync(destinationPathName, content);
-            
-            process.argv.forEach((arg, index) => {
-                if (index > 3) {
-                    addColor(destinationPathName, arg);
-                }
-            })
         }
+
+        process.argv.forEach((arg, index) => {
+            if (index > 2 && process.argv[index].split('=')[0] !== 'path') {
+                const colorDirectory: string = path.join(destinationPath, process.argv[index].split('=')[0]);
+                const colorFile: string = path.join(colorDirectory, `${process.argv[index].split('=')[0]}-color-map.scss`)
+                createDirectory(colorDirectory);
+                createFile(colorFile);
+                addColor(colorFile, arg);
+            }
+        })
     })
-
-    console.log(process.argv);
-}
-
-function addColor(destinationPathName: string, color: string) {
-    var logger = fs.createWriteStream(destinationPathName, {
-        flags: 'a'
-    });
-
-    logger.write(`\n$${color.split('=')[0]}: (`);
-
-    createColorArray(color).forEach((color: ColorMap) => {
-        logger.write(`\n\t$${Object.keys(color)[0]}: ${color[Object.keys(color)[0]]},`);
-    });
-
-    logger.write('\n);');
 }
