@@ -4,16 +4,23 @@ import { createDestinationDirectory } from '../common/tree-manipulation/createDe
 import { createDirectory } from '../common/tree-manipulation/createDirectory';
 import { addColor } from '../common/color-calculations/addColor';
 import { createFile } from '../common/tree-manipulation/createFile';
+import { PathSanitizer } from '../common/arg-sanitizer/PathSanitizer';
+import { requiredArgSanitizer } from '../common/arg-sanitizer/RequiredArgSanitizer';
 
 export function generate() {
     // Creates a path to the templates directory to use in the code
     const templatesPath: string = path.join(process.cwd(), 'node_modules', '@tg', 'm3-theming-generator', 'src','templates');
     // Scans the templates directory for directories and files to implement
     const templateNames: string[] = fs.readdirSync(templatesPath);
+    // Gets the sanitized path argument
+    const pathArg = PathSanitizer();
     // Creates a path to the destination folder where the theme needs to be generated into
-    const pathArg = process.argv.find((path) => path .split('=')[0] === 'path').split('=')[1];
     const destinationPath: string = path.join(process.cwd(), pathArg);
+
+    // Checks if all the necessary and required arguments have been provided
+    requiredArgSanitizer();
     
+    // Creates the directory from the specified path
     createDestinationDirectory(pathArg);
 
     templateNames.forEach(name => {
