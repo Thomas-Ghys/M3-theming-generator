@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-export function createThemeTokensFile(destinationPathName: string, color: string, templatesPath: string, templateName: string) {
+export function createTemplatesFile(destinationPathName: string, color: string, templatesPath: string, templateName: string) {
     fs.readFile(path.join(templatesPath, templateName), 'utf8', (error, data) => {
         if (error) {
             return console.log(error);

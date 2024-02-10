@@ -1,0 +1,18 @@
+@mixin template-dark-theme() {
+    :root[data-theme="dark"] {
+        --md-sys-color-surface: var(--md-sys-color-surface-dark);
+        --md-sys-color-on-surface: var( --md-sys-color-on-surface-dark);
+
+        --md-sys-color-surface-dim: var(--md-sys-color-surface-dim-dark);
+        --md-sys-color-surface-bright: var( --md-sys-color-surface-bright-dark);
+
+        --md-sys-color-inverse-surface: var(--md-sys-color-inverse-surface-dark);
+        --md-sys-color-inverse-on-surface: var(--md-sys-color-inverse-on-surface-dark);
+
+        --md-sys-color-surface-container-lowest: var(--md-sys-color-surface-container-lowest-dark);
+        --md-sys-color-surface-container-low: var(--md-sys-color-surface-container-low-dark);
+        --md-sys-color-surface-container: var(--md-sys-color-surface-container-dark);
+        --md-sys-color-surface-container-high: var(--md-sys-color-surface-container-high-dark);
+        --md-sys-color-surface-container-highest: var(--md-sys-color-surface-container-highest-dark);
+    }
+}

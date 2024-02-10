@@ -1,0 +1,17 @@
+@mixin template-light-theme() {
+    :root:not([data-theme="dark"]) {
+        --md-sys-color-template: var(--md-sys-color-template-light);
+        --md-sys-color-on-template: var(--md-sys-color-on-template-light);
+        --md-sys-color-template-container: var(--md-sys-color-template-container-light);
+        --md-sys-color-on-template-container: var(--md-sys-color-on-template-container-light);
+
+        --md-sys-color-template-fixed: var(--md-sys-color-template-fixed-light);
+        --md-sys-color-on-template-fixed: var(--md-sys-color-on-template-fixed-light);
+        --md-sys-color-on-template-fixed-variant: var(--md-sys-color-on-template-fixed-variant-light);
+        --md-sys-color-template-container-fixed: var(--md-sys-color-template-container-fixed-light);
+        --md-sys-color-on-template-container-fixed: var(--md-sys-color-on-template-container-fixed-light);
+
+        --md-sys-color-inverse-template: var(--md-sys-color-inverse-template-light);
+        --md-sys-color-template-dim: var(--md-sys-color-template-dim-light);
+    }
+}

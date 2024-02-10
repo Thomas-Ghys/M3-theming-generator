@@ -1,4 +1,4 @@
-@mixin template-tokens() {
+@mixin template-dark-tokens() {
     :root[data-theme="dark"] {
         --md-sys-color-template-dark: var(--md-ref-palette-template-80);
         --md-sys-color-on-template-dark: var(--md-ref-palette-template-20);
