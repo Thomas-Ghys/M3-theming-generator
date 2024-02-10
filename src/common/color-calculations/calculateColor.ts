@@ -1,6 +1,6 @@
 import { RGB } from "../../types/RGB";
 
-export function calculateColor(hexInput: string, percentagemodifier: number): string {
+export function calculateColor(hexInput: string, percentagemodifier: number, returnType: 'hex' | 'rgb' = 'hex'): string {
     let rgbConvertedInput: RGB = convertHexToRGB(hexInput);
 
     let percentageModifiedRGB: RGB = {
@@ -9,14 +9,18 @@ export function calculateColor(hexInput: string, percentagemodifier: number): st
         blue: adjustedColor(rgbConvertedInput.blue, percentagemodifier)
     }
 
-    return convertRGBToHex(percentageModifiedRGB);
+
+    if (returnType === 'hex') {
+        return convertRGBToHex(percentageModifiedRGB);
+    }
+    return `rgb(${percentageModifiedRGB.red}, ${percentageModifiedRGB.green}, ${percentageModifiedRGB.blue})`;
 }
 
 export function adjustedColor(inputColor: number, percentagemodifier: number): number {
     if (percentagemodifier <= 0.4) {
-        return 0 + (((percentagemodifier) / 40) * 100) * (inputColor - 0);
+        return Math.round(0 + (((percentagemodifier) / 40) * 100) * (inputColor - 0));
     }
-    return inputColor + (((percentagemodifier - 0.4) / 60) * 100) * (255 - inputColor);
+    return Math.round(inputColor + (((percentagemodifier - 0.4) / 60) * 100) * (255 - inputColor));
 }
 
 export function convertRGBToHex(rgb: RGB): string {
