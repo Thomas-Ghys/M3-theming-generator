@@ -1,0 +1,18 @@
+@mixin template-tokens() {
+    :root:not([data-theme="dark"]) {
+        --md-sys-color-surface-light: var(--md-ref-palette-neutral-98);
+        --md-sys-color-on-surface-light: var(--md-ref-palette-neutral-10);
+
+        --md-sys-color-surface-dim-light: var(--md-ref-palette-neutral-87);
+        --md-sys-color-surface-bright-light: var(--md-ref-palette-neutral-98);
+
+        --md-sys-color-inverse-surface-light: var(--md-ref-palette-neutral-20);
+        --md-sys-color-inverse-on-surface-light: var(--md-ref-palette-neutral-95);
+
+        --md-sys-color-surface-container-lowest-light: var(--md-ref-palette-neutral-100);
+        --md-sys-color-surface-container-low-light: var(--md-ref-palette-neutral-96);
+        --md-sys-color-surface-container-light: var(--md-ref-palette-neutral-94);
+        --md-sys-color-surface-container-high-light: var(--md-ref-palette-neutral-92);
+        --md-sys-color-surface-container-highest-light: var(--md-ref-palette-neutral-90);
+    }
+}

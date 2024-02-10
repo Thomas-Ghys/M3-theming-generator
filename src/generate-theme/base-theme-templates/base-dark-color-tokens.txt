@@ -1,0 +1,17 @@
+@mixin template-tokens() {
+    :root[data-theme="dark"] {
+        --md-sys-color-template-dark: var(--md-ref-palette-template-80);
+        --md-sys-color-on-template-dark: var(--md-ref-palette-template-20);
+        --md-sys-color-template-container-dark: var(--md-ref-palette-template-30);
+        --md-sys-color-on-template-container-dark: var(--md-ref-palette-template-90);
+
+        --md-sys-color-template-fixed-dark: var(--md-ref-palette-template-90);
+        --md-sys-color-on-template-fixed-dark: var(--md-ref-palette-template-10);
+        --md-sys-color-on-template-fixed-variant-dark: var(--md-ref-palette-template-30);
+        --md-sys-color-template-container-fixed-dark: var(--md-ref-palette-template-40);
+        --md-sys-color-on-template-container-fixed-dark: var(--md-ref-palette-template-100);
+
+        --md-sys-color-inverse-template-dark: var(--md-ref-palette-template-40);
+        --md-sys-color-template-dim-dark: var(--md-ref-palette-template-40);
+    }
+}
