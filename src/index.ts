@@ -13,7 +13,7 @@ function m3ThemingGenerator() {
         return;
     }
 
-    console.log('Process not found');
+    throw new Error('Requested command not found.')
 }
 
 m3ThemingGenerator();
