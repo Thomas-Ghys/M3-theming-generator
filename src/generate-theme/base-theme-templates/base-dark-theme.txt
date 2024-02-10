@@ -1,4 +1,8 @@
+@import './../../../tokens/dark-theme-tokens/template/template-dark-theme-tokens';
+
 @mixin template-dark-theme() {
+    @include template-dark-tokens();
+
     :root[data-theme="dark"] {
         --md-sys-color-template: var(--md-sys-color-template-dark);
         --md-sys-color-on-template: var(--md-sys-color-on-template-dark);

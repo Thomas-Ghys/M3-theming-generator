@@ -46,13 +46,13 @@ export function generate() {
                 const lightThemeTokensFile = subFolderFileSetup(destinationPath, 'tokens/light-theme-tokens', surfaceName, `${surfaceName}-light-theme-tokens.scss`);
                 addLightThemeTokens(lightThemeTokensFile, surfaceName);
 
-                const darkThemeTokensFile = subFolderFileSetup(destinationPath, 'tokens/dark-theme-tokens', colorName, `${surfaceName}-dark-theme-tokens.scss`);
+                const darkThemeTokensFile = subFolderFileSetup(destinationPath, 'tokens/dark-theme-tokens', surfaceName, `${surfaceName}-dark-theme-tokens.scss`);
                 addDarkThemeTokens(darkThemeTokensFile, surfaceName);
 
                 const lightThemeFile = subFolderFileSetup(destinationPath, 'theme/light-theme', surfaceName, `${surfaceName}-light-theme.scss`);
                 addLightTheme(lightThemeFile, surfaceName);
 
-                const darkThemeFile = subFolderFileSetup(destinationPath, 'theme/dark-theme', colorName, `${surfaceName}-dark-theme.scss`);
+                const darkThemeFile = subFolderFileSetup(destinationPath, 'theme/dark-theme', surfaceName, `${surfaceName}-dark-theme.scss`);
                 addDarkTheme(darkThemeFile, surfaceName);
             }
         }

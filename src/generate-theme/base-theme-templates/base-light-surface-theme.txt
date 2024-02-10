@@ -1,4 +1,8 @@
+@import './../../../tokens/light-theme-tokens/template/template-light-theme-tokens';
+
 @mixin template-light-theme() {
+    @include template-light-tokens();
+    
     :root:not([data-theme="dark"]) {
         --md-sys-color-surface: var(--md-sys-color-surface-light);
         --md-sys-color-on-surface: var( --md-sys-color-on-surface-light);
