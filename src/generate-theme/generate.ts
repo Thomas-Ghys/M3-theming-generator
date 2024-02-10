@@ -1,6 +1,5 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { createDestinationDirectory } from '../common/tree-manipulation/createDestinationDirectory';
 import { createDirectory } from '../common/tree-manipulation/createDirectory';
 import { addColor } from '../common/color-calculations/addColor';
 import { createFile } from '../common/tree-manipulation/createFile';
@@ -21,7 +20,7 @@ export function generate() {
     requiredArgSanitizer();
     
     // Creates the directory from the specified path
-    createDestinationDirectory(pathArg);
+    createDirectory(pathArg);
 
     templateNames.forEach(name => {
         const originPath = path.join(templatesPath, name);
@@ -35,7 +34,7 @@ export function generate() {
 
         process.argv.forEach((arg, index) => {
             if (index > 2 && process.argv[index].split('=')[0] !== 'path') {
-                const colorDirectory: string = path.join(destinationPath, process.argv[index].split('=')[0]);
+                const colorDirectory: string = path.join(destinationPath, 'color-tokens', process.argv[index].split('=')[0]);
                 const colorFile: string = path.join(colorDirectory, `${process.argv[index].split('=')[0]}-color-map.scss`)
                 createDirectory(colorDirectory);
                 createFile(colorFile);
