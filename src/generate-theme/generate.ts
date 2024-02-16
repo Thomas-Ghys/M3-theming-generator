@@ -30,10 +30,10 @@ export function generate() {
             addColor(colorTokensFile, arg);
 
             if (!colorName.includes('neutral')) {
-                const lightThemeTokensFile = subFolderFileSetup(destinationPath, 'tokens/light-theme-tokens', colorName, `${colorName}-light-theme-tokens.scss`);
+                const lightThemeTokensFile = subFolderFileSetup(destinationPath, 'theme-tokens/light-theme-tokens', colorName, `${colorName}-light-theme-tokens.scss`);
                 addLightThemeTokens(lightThemeTokensFile, colorName);
 
-                const darkThemeTokensFile = subFolderFileSetup(destinationPath, 'tokens/dark-theme-tokens', colorName, `${colorName}-dark-theme-tokens.scss`);
+                const darkThemeTokensFile = subFolderFileSetup(destinationPath, 'theme-tokens/dark-theme-tokens', colorName, `${colorName}-dark-theme-tokens.scss`);
                 addDarkThemeTokens(darkThemeTokensFile, colorName);
 
                 const lightThemeFile = subFolderFileSetup(destinationPath, 'theme/light-theme', colorName, `${colorName}-light-theme.scss`);
@@ -43,10 +43,10 @@ export function generate() {
                 addDarkTheme(darkThemeFile, colorName);
             } else {
                 const surfaceName = colorName.replace('neutral', 'surface');
-                const lightThemeTokensFile = subFolderFileSetup(destinationPath, 'tokens/light-theme-tokens', surfaceName, `${surfaceName}-light-theme-tokens.scss`);
+                const lightThemeTokensFile = subFolderFileSetup(destinationPath, 'theme-tokens/light-theme-tokens', surfaceName, `${surfaceName}-light-theme-tokens.scss`);
                 addLightThemeTokens(lightThemeTokensFile, surfaceName);
 
-                const darkThemeTokensFile = subFolderFileSetup(destinationPath, 'tokens/dark-theme-tokens', surfaceName, `${surfaceName}-dark-theme-tokens.scss`);
+                const darkThemeTokensFile = subFolderFileSetup(destinationPath, 'theme-tokens/dark-theme-tokens', surfaceName, `${surfaceName}-dark-theme-tokens.scss`);
                 addDarkThemeTokens(darkThemeTokensFile, surfaceName);
 
                 const lightThemeFile = subFolderFileSetup(destinationPath, 'theme/light-theme', surfaceName, `${surfaceName}-light-theme.scss`);
