@@ -4,6 +4,7 @@ import { GenerateArgs } from '../../types/arguments/GenerateArgs';
 import { createColorTokens } from '../colors/createColorTokens';
 import { createThemeTokens } from './createThemeTokens';
 import { createThemeFiles } from './createThemeFiles';
+import { createThemeConnections } from './createThemeConnections';
 
 // Create the theme according to the templates and provided colors
 export function createTheme(generateArgs: GenerateArgs) {
@@ -24,4 +25,5 @@ export function createTheme(generateArgs: GenerateArgs) {
     });
 
     // Create theme connections
+    createThemeConnections(generateArgs);
 }

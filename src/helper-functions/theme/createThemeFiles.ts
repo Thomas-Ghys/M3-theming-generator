@@ -21,12 +21,12 @@ export function createThemeFiles(basePath: string, colorName: string) {
         // Fill the theme token file path with the correct tokens
         if (colorName !== 'neutral') {
             // Set the path to the correct templates file
-            const templatePath: string = path.join(process.cwd(), `node_modules/@tg/m3-theming-generator/src/generate-theme/base-theme-templates/base-${type}-theme.txt`);
+            const templatePath: string = path.join(process.cwd(), `node_modules/@tg/m3-theming-generator/src/generate-theme/base-theme-templates/theme-templates/base-${type}-theme.txt`);
             fillFileFromTemplate(path.join(themeFilePath, themeFileName), templatePath, colorName);
             return;
         }
         // In case of the neutral color change it to Google Materials surface
-        const templatePath: string = path.join(process.cwd(), `node_modules/@tg/m3-theming-generator/src/generate-theme/base-theme-templates/base-${type}-surface-theme.txt`);
+        const templatePath: string = path.join(process.cwd(), `node_modules/@tg/m3-theming-generator/src/generate-theme/base-theme-templates/theme-templates/base-${type}-surface-theme.txt`);
         fillFileFromTemplate(path.join(themeFilePath, themeFileName), templatePath, 'surface');
     });
 }
