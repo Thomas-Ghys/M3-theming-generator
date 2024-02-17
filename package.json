@@ -1,6 +1,6 @@
 {
   "name": "@tg/m3-theming-generator",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A package to generate a M3 theming system",
   "main": "index.js",
   "bin": "./dist/index.js",
