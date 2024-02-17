@@ -1,33 +1,35 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { createDirectory } from '../common/tree-manipulation/createDirectory';
 import { addColor } from '../common/color-calculations/addColor';
-import { PathSanitizer } from '../common/arg-sanitizer/PathSanitizer';
-import { requiredArgSanitizer } from '../common/arg-sanitizer/RequiredArgSanitizer';
+import { pathSanitizer } from '../helper-functions/sanitizers/pathSanitizer';
 import { subFolderFileSetup } from '../common/tree-manipulation/subFolderFileSetup';
 import { addLightThemeTokens } from '../common/light-theme/addLightThemeTokens';
 import { addDarkThemeTokens } from '../common/dark-theme/addDarkThemeTokens';
 import { addDarkTheme } from '../common/dark-theme/addDarkTheme';
 import { addLightTheme } from '../common/light-theme/addLightTheme';
+import { GenerateArgs } from '../types/arguments/GenerateArgs';
+import { generateSanitizer } from '../helper-functions/sanitizers/generateSanitizer';
+import { createFolders } from '../helper-functions/file-manipulation/createDirectory';
+import { createTheme } from '../helper-functions/theme/createTheme';
 
 export function generate() {
     // Gets the sanitized path argument
-    const pathArg = PathSanitizer();
+    const pathArg = pathSanitizer();
     // Creates a path to the destination folder where the theme needs to be generated into
-    const destinationPath: string = path.join(process.cwd(), pathArg);
+    const destinationPath: string = path.join(process.cwd(), pathArg.inputPath);
 
     // Checks if all the necessary and required arguments have been provided
-    requiredArgSanitizer();
+    // requiredArgSanitizer();
     
     // Creates the directory from the specified path
-    createDirectory(pathArg);
+    //createDirectory(pathArg.inputPath);
 
     process.argv.forEach((arg, index) => {
         if (index > 2 && process.argv[index].split('=')[0] !== 'path') {
             const colorName = process.argv[index].split('=')[0];
 
-            const colorTokensFile = subFolderFileSetup(destinationPath, 'color-tokens', colorName, `${colorName}-color-map.scss`);
-            addColor(colorTokensFile, arg);
+            // colorTokensFile = subFolderFileSetup(destinationPath, 'color-tokens', colorName, `${colorName}-color-map.scss`);
+            // addColor(colorTokensFile, arg);
 
             if (!colorName.includes('neutral')) {
                 const lightThemeTokensFile = subFolderFileSetup(destinationPath, 'theme-tokens/light-theme-tokens', colorName, `${colorName}-light-theme-tokens.scss`);
@@ -57,4 +59,17 @@ export function generate() {
             }
         }
     });
+
+    generateV2();
+}
+
+export function generateV2() {
+    // normalize the input arguments
+    const generateArgs: GenerateArgs = generateSanitizer();
+
+    // Create the theme folder at the provided path
+    createFolders(generateArgs.path.inputPath);
+
+    // Create the theme
+    createTheme(generateArgs);
 }

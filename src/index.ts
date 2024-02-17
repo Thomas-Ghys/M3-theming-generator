@@ -2,7 +2,7 @@
 import {generate} from './generate-theme/generate';
 
 function m3ThemingGenerator() {
-    if (process.argv[2] === 'generate') {
+    if (process.argv[2] === 'generate-theme') {
         console.log('generating theme');
         generate();
         return;

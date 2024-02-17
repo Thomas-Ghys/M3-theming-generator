@@ -1,11 +1,11 @@
 import * as path from 'path';
-import { createDirectory } from "./createDirectory";
 import { createFile } from "./createFile";
+import { createFolders } from '../../helper-functions/file-manipulation/createDirectory';
 
 export function subFolderFileSetup(destinationPath: string, subFolder: string, directoryName: string, fileName: string): string {
     const subFolderDirectory: string = path.join(destinationPath, subFolder, directoryName);
     const subFolderFile: string = path.join(subFolderDirectory, fileName);
-    createDirectory(subFolderDirectory);
+    createFolders(subFolderDirectory);
     createFile(subFolderFile);
 
     return subFolderFile;
