@@ -5,7 +5,7 @@ import { RGB } from '../../types/colors/RGB';
 
 // Create all the tokens for the provided color and write them into the provided file
 export function createColorTokens(colorTokenFilePath: string, color: ColorArg) {
-    // start a writing stream with the append flag enabled
+    // Start a writing stream with the append flag enabled
     let writer = fs.createWriteStream(colorTokenFilePath, {flags: 'a'});
 
     // Add the mixin
