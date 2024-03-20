@@ -1,4 +1,4 @@
-@import './../../../tokens/light-theme-tokens/template/template-light-theme-tokens';
+@import './../../../theme-tokens/light-theme-tokens/template/template-light-theme-tokens';
 
 @mixin template-light-theme() {
     @include template-light-tokens();
