@@ -4,7 +4,7 @@ import { createFolders } from '../helper-functions/file-manipulation/createDirec
 import { createTheme } from '../helper-functions/theme/createTheme';
 
 export function generate() {
-    // normalize the input arguments
+    // Normalize the input arguments
     const generateArgs: GenerateArgs = generateSanitizer();
 
     // Create the theme folder at the provided path
