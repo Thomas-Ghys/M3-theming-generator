@@ -1,4 +1,4 @@
-@import './../../../tokens/dark-theme-tokens/template/template-dark-theme-tokens';
+@import './../../../theme-tokens/dark-theme-tokens/template/template-dark-theme-tokens';
 
 @mixin template-dark-theme() {
     @include template-dark-tokens();

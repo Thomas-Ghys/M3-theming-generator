@@ -8,16 +8,19 @@ export function createColorTokens(colorTokenFilePath: string, color: ColorArg) {
     // start a writing stream with the append flag enabled
     let writer = fs.createWriteStream(colorTokenFilePath, {flags: 'a'});
 
+    // Add the mixin
+    writer.write(`@mixin ${color.name}-tokens() {`)
     // Add the beginning line of the color file
-    writer.write(':root {');
+    writer.write('\n\t:root {');
 
     // Create all the tokens by calculating te linear map from black to white
     calculateLinearColorMap(color).forEach((color: ColorMap) => {
         // Write the calculated color to the provided file in the correct way
-        writer.write(`\n\t--md-ref-palette-${Object.keys(color)[0]}: ${color[Object.keys(color)[0]]},`);
+        writer.write(`\n\t\t--md-ref-palette-${Object.keys(color)[0]}: ${color[Object.keys(color)[0]]};`);
     });
 
-    // Finish the file by closing the beginning file
+    // Finish the file by closing the beginning file and mixin
+    writer.write('\n\t};');
     writer.write('\n};');
 }
 

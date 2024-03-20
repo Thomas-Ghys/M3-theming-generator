@@ -27,6 +27,6 @@ export function createThemeFiles(basePath: string, colorName: string) {
         }
         // In case of the neutral color change it to Google Materials surface
         const templatePath: string = path.join(process.cwd(), `node_modules/@tg/m3-theming-generator/src/generate-theme/base-theme-templates/theme-templates/base-${type}-surface-theme.txt`);
-        fillFileFromTemplate(path.join(themeFilePath, themeFileName), templatePath, 'surface');
+        fillFileFromTemplate(path.join(themeFilePath, themeFileName), templatePath, colorName);
     });
 }
